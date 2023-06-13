@@ -30,6 +30,8 @@ window.addEventListener("load", async () => {
         speed: 1,
       });
 
+      // work
+
       var ourPositionMarker = new mapboxgl.Marker({
         color: "#ffff00",
       })
