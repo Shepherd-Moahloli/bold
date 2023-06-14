@@ -85,7 +85,7 @@ window.addEventListener("load", async () => {
               "line-cap": "round",
             },
             paint: {
-              "line-color": "#ff0000",
+              "line-color": "#87ceeb",
               "line-width": 5,
               "line-opacity": 0.75,
             },
