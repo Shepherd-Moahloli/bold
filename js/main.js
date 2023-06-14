@@ -51,7 +51,7 @@ window.addEventListener("load", async () => {
       let startCoord = ourPositionMarker.getLngLat().toArray().join(",");
       let endCoord = ourPoiMarker.getLngLat().toArray().join(",");
       let navigationURL = `https://api.mapbox.com/directions/v5/mapbox/driving-traffic/${startCoord};${endCoord}`;
-      navigationURL += `?access_token=${mapboxgl.accessToken}`;
+      navigationURL += `?access_token=${mapboxgl.accessToken}&geometries=geojson`;
 
       async function getDirections() {
         console.log("getting directions");
