@@ -54,9 +54,11 @@ window.addEventListener("load", async () => {
       navigationURL += `?access_token=${mapboxgl.accessToken}`;
 
       async function getDirections() {
+        console.log("getting directions");
         const query = await fetch(navigationURL);
         const json = await query.json();
-        console.log(json.routes[0]);
+        const data = json.routes[0];
+        console.log(json);
 
         const route = data.geometry.coordinates;
         const geojson = {
@@ -70,10 +72,7 @@ window.addEventListener("load", async () => {
 
         if (map.getSource("route")) {
           map.getSource("route").setData(geojson);
-        }
-
-        // otherwisd, we'll make a new request
-        else {
+        } else {
           map.addLayer({
             id: "route",
             type: "line",
@@ -86,15 +85,17 @@ window.addEventListener("load", async () => {
               "line-cap": "round",
             },
             paint: {
-              "line-color": "#3887be",
+              "line-color": "#ff0000",
               "line-width": 5,
               "line-opacity": 0.75,
             },
           });
+          console.log(map.getSource("route"));
         }
-
-        getDirections();
       }
+
+      console.log("get directions");
+      getDirections();
     },
 
     (error) => {
